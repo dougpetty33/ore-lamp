@@ -29,11 +29,11 @@ void handleSetColor()
       blue = (byte)server.arg("blue").toInt();
       green = (byte)server.arg("green").toInt();
       colorWipe(strip.Color(red, green, blue), 10); // Red
-      server.send ( 200, "text/html", "set color");
+       server.send ( 200, "text/html", "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js\"></script><form method='get' id=\"color_form\">Color: <input class=\"jscolor{onFineChange:'send_to_ore_lamp(this)'}\" id=\"picker\" value=\"ab2567\"><input name=\"red\" id=\"red\" type=\"hidden\" value=\"\"/><input name=\"green\" id=\"green\" type=\"hidden\" value=\"\"/><input name=\"blue\" id=\"blue\" type=\"hidden\" value=\"\"/><button type=\"submit\" onclick=\"send_to_ore_lamp()\">Send to Lamp</button><script type=\"text/javascript\">function send_to_ore_lamp(picker){var red=Math.round(picker.rgb[0]);var green=Math.round(picker.rgb[1]);var blue=Math.round(picker.rgb[2]);document.getElementById('red').value=red;document.getElementById('green').value=green;document.getElementById('blue').value=blue;return true;}</script>");
   }
   else
   {
-    server.send ( 400, "text/html", "Need a red, green, and blue value" );
+    server.send ( 200, "text/html", "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js\"></script><form method='get' id=\"color_form\">Color: <input class=\"jscolor{onFineChange:'send_to_ore_lamp(this)'}\" id=\"picker\" value=\"ab2567\"><input name=\"red\" id=\"red\" type=\"hidden\" value=\"\"/><input name=\"green\" id=\"green\" type=\"hidden\" value=\"\"/><input name=\"blue\" id=\"blue\" type=\"hidden\" value=\"\"/><button type=\"submit\" onclick=\"send_to_ore_lamp()\">Send to Lamp</button><script type=\"text/javascript\">function send_to_ore_lamp(picker){var red=Math.round(picker.rgb[0]);var green=Math.round(picker.rgb[1]);var blue=Math.round(picker.rgb[2]);document.getElementById('red').value=red;document.getElementById('green').value=green;document.getElementById('blue').value=blue;return true;}</script>");
   }
 }
 
